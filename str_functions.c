@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-* _strcpy - function
+* _strcpy - function that copy a string
 * @dest: copy to string
 * @src: copy from string
 * @n: at parameter
@@ -8,7 +8,7 @@
 * Description: copies a string to the nth value.
 * Return: dest
 */
-char *_strcpy(char *dest, char *src, int n)
+char *_strcpy(char *dest, char *src)
 {
 	int len;
 
@@ -42,33 +42,24 @@ int _strlen(char *s)
 	return (index);
 }
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
+  * _strcmp - compares two strings.
+  * @s1: first string.
+  * @s2: second string.
+  * Return: j
+  */
+int _strcmp(char *s1, char *s2)
 {
-	return (write(1, &c, 1));
-}
-/**
-* _strcmp - function
-* @s1: string to compare to
-* @s2: string to compare
-* @n: # of characters to compare to s1
-*
-* Description: function to compare to strings up to the nth character
-* Return: 0 Success
-*/
-int _strcmp(const char *s1, const char *s2, size_t n)
-{
-	while (n--)
+	int i, j;
+
+	i = 0;
+	while (s1[i] != 0)
 	{
-		if (*s1++ != *s2++)
-			return (*(unsigned char *)(s1 - 1) - *(unsigned char *)(s2 - 1));
+		j = s1[i] - s2[i];
+		if (j != 0)
+			return (j);
+		i++;
 	}
-	return (0);
+	return (j);
 }
 
 /**

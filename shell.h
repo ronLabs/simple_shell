@@ -10,7 +10,6 @@
 #include <sys/stat.h>
 #define DELIM " \t\0"
 
-int _putchar(char c);
 char *_strncpy(char *dest, char *src, int n);
 int _strlen(char *s);
 int _strcmp(const char *s1, const char *s2, size_t n);
