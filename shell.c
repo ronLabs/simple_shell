@@ -18,6 +18,8 @@ int main(int argc __attribute__((unused)), char *argv[], char **env)
 		/* Print the prompt in terminal */
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
+		/* when the user press ctrl+c */
+		signal(SIGINT, signalctrl_c);
 		/* read the user input */
 		userInput = getline(&buf, &sizebuf, stdin);
 		/* In error "\n" and ends the program*/
@@ -25,6 +27,10 @@ int main(int argc __attribute__((unused)), char *argv[], char **env)
 		{
 			if (isatty(STDIN_FILENO) == 1)
 				write(STDOUT_FILENO, "\n", 1);
+			break;
+		}
+		if (userInput == EOF)
+		{
 			break;
 		}
 		/* changes the '\n' from the buf to '\0' */
@@ -39,6 +45,7 @@ int main(int argc __attribute__((unused)), char *argv[], char **env)
 	}
 	/* Frees the buf memory and returns the value of the beginning  */
 	free(buf);
+	fflush(stdin);
 	buf = NULL;
 	return (0);
 }
