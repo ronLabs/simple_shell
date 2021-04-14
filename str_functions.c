@@ -1,28 +1,26 @@
 #include "shell.h"
 /**
-* _strcpy - function that copy a string
-* @dest: copy to string
-* @src: copy from string
-* @n: at parameter
-*
-* Description: copies a string to the nth value.
-* Return: dest
-*/
+ * char *_strcpy- Copies a string
+ *@dest: The new, coppied string
+ *@src: The original string to copy
+ *
+ * Return: Always 0.
+ */
 char *_strcpy(char *dest, char *src)
 {
-	int len;
+	int length, i;
 
-	for (len = 0; src[len]; len++)
+	length = _strlen(src);
+
+	for (i = 0; i < length; i++)
 	{
-		if (n > len)
-		dest[len] = src[len];
+		dest[i] = src[i];
 	}
-	for ( ; n > len; len++)
-	{
-		dest[len] = '\0';
-	}
+	dest[i] = '\0';
+
 	return (dest);
 }
+
 /**
 * _strlen - function
 * @s: first operand & pointer
@@ -43,23 +41,21 @@ int _strlen(char *s)
 }
 /**
   * _strcmp - compares two strings.
-  * @s1: first string.
-  * @s2: second string.
-  * Return: j
+  * @s1: string to compare to.
+  * @s2: string to compare.
+  * @n: # of characters to compare to s1
+  *
+  * Description: function to compare to strings up to the nth character
+  * Return: 0 on Success
   */
-int _strcmp(char *s1, char *s2)
+int _strcmp(const char *s1, const char *s2, size_t n)
 {
-	int i, j;
-
-	i = 0;
-	while (s1[i] != 0)
+	while (n--)
 	{
-		j = s1[i] - s2[i];
-		if (j != 0)
-			return (j);
-		i++;
+		if (*s1++ != *s2++)
+			return (*(unsigned char *)(s1 - 1) - *(unsigned char *)(s2 - 1));
 	}
-	return (j);
+	return (0);
 }
 
 /**
