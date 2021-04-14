@@ -20,12 +20,13 @@ Clone this repository: "https://github.com/ronLabs/simple_shell"
 - Our main files will include your main header file(simple_shell.h): #include simple_shell.h
 
 ## Usage
--The simple_shell is designed to execute commands in a similar manner to sh, however with more limited functionality.
+- The simple_shell is designed to execute commands in a similar manner to sh, however with more limited functionality.
 
 ## Extra Information
 ### Whats Included?
 
 |     FILE      |         DESCRIPTION        		|
+|---------------|---------------------------------------|
 |built-in.c     |   contains enviroments functions	|
 |searchpath.c   |  contains functions to seek the PATH	|
 |shell.c        |    contains the main functions	|
