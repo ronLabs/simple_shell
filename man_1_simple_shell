@@ -1,0 +1,45 @@
+.Dd 13/04/21               \" DATE
+.TH simple_shell
+
+.Sh NAME
+simple_shell \ - shell formated output
+
+.SH SYNOPSIS
+.B  ./hsh
+
+.SH DESCRIPTION
+Simple_shell is a Command line interpreter, which includes the basic functionality of a Unix shell
+
+.SH FILES
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+
+.P
+built-in.c
+searchpath.c
+shell.c
+simple_shell.h
+str_func.c
+
+.SH COMPILE
+Compile: `gcc -Wall -Werror -Wextra -pedantic *.c -o sh`
+.P
+simple_shell should work like this in interactive mode:
+.P
+.RS
+.B $ ./hsh
+.P
+.RE
+simple_shell can be run in non-interactive mode. This can involve the use of piping ('|'):
+.P
+.RS
+.B echo 'pwd' | ./hsh
+
+.SH AUTHOR
+Ronald Altamirano
+Kenny Reyes
