@@ -23,10 +23,12 @@ char *_strdup(char *str);
 extern char **environ;
 char *shellname;
 
+/* other functions */
 int tokenize_cmd(char *buf, char **env);
 int _execute(char *array[]);
 void not_path(char *cmd);
 
+/* env functions */
 int _printenv(char **environ);
 char *_getenv(const char *name, char **env);
 char *searchpath(char *cmd, char **env);
