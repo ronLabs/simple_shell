@@ -13,6 +13,7 @@
 /* signal function */
 void signalctrl_c(int signal);
 
+/* str functions */
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 int _strcmp(const char *s1, const char *s2, size_t n);
