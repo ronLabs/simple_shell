@@ -39,42 +39,43 @@ Unless specified otherwise, your program must have the exact same output as sh (
 Example of error with sh:
 
 
-####$ echo "qwerty" | /bin/sh
-####/bin/sh: 1: qwerty: not found
-####$ echo "qwerty" | /bin/../bin/sh
-####/bin/../bin/sh: 1: qwerty: not found
-####$
+#### $ echo "qwerty" | /bin/sh
+#### /bin/sh: 1: qwerty: not found
+#### $ echo "qwerty" | /bin/../bin/sh
+#### /bin/../bin/sh: 1: qwerty: not found
+#### $
 
 
 Same error with your program sh:
 
-####$ echo "qwerty" | ./sh
-####./sh: 1: qwerty: not found
-####$ echo "qwerty" | ./././sh
-####./././hsh: 1: qwerty: not found
-####$
+#### $ echo "qwerty" | ./sh
+#### ./sh: 1: qwerty: not found
+#### $ echo "qwerty" | ./././sh
+#### ./././hsh: 1: qwerty: not found
+#### $
 
 ### Testing
 
 Your shell should work like this in interactive mode:
 
-####$ ./sh
-####($) /bin/ls
-####built-in.c sh shell.c
-####($)
-####($) exit
-####$
+#### $ ./sh
+#### ($) /bin/ls
+#### built-in.c sh shell.c
+#### ($)
+#### ($) exit
+#### $
 
 
 But also in non-interactive mode:
 
-####$ echo "/bin/ls" | ./sh
-####built-in.c sh shell.c test_ls_2
-####$
-####$ cat test_ls_2
-####/bin/ls
-####/bin/ls
-####$
-####$ cat test_ls_2 | ./sh
-####sh shell.c test_ls_2
-####sh shell.c test_ls_2
+#### $ echo "/bin/ls" | ./sh
+#### built-in.c sh shell.c test_ls_2
+#### $
+#### $ cat test_ls_2
+#### /bin/ls
+#### /bin/ls
+#### $
+#### $ cat test_ls_2 | ./sh
+#### sh shell.c test_ls_2
+#### sh shell.c test_ls_2
+#### $
