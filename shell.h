@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #define DELIM " \t\0"
 
+/* signal function */
 void signalctrl_c(int signal);
 
 char *_strcpy(char *dest, char *src);
