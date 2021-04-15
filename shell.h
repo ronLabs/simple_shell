@@ -27,7 +27,6 @@ char *shellname;
 int tokenize_cmd(char *buf, char **env);
 int _execute(char *array[]);
 void not_path(char *cmd);
-void path_notfound(void);
 
 /* env functions */
 int _printenv(char **environ);
