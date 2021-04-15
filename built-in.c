@@ -51,6 +51,6 @@ char *_getenv(const char *name, char **env)
 		j = 0;
 	}
 	/* If not found */
-	write(STDOUT_FILENO, "Not found", 9);
+	/*write(STDOUT_FILENO, "Not found", 9);*/
 	return (NULL);
 }
