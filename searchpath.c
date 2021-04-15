@@ -17,7 +17,9 @@ char *searchpath(char *cmd, char **env)
 	char *s2 = cmd;
 	char *new_path = NULL;
 	struct stat cmd_stat;
-	/* we allocate memory to the new_path */
+
+	if (path == NULL)
+		path_notfound();
 	new_path = malloc(sizeof(char) * 100);
 	/* tokenizes and sends the tokens in path_array */
 	while (path_tokens != NULL)
@@ -33,7 +35,6 @@ char *searchpath(char *cmd, char **env)
 		_strcat(new_path, "/");
 		_strcat(new_path, s2);
 		_strcat(new_path, "\0");
-
 		/* check if it exists */
 		if (stat(new_path, &cmd_stat) == 0)
 		{
@@ -43,11 +44,21 @@ char *searchpath(char *cmd, char **env)
 		else
 			new_path[0] = 0;
 	}
-	/* frees allocated memory */
 	free(path);
 	free(new_path);
 	/* for non-interactive mode */
 	if (stat(cmd, &cmd_stat) == 0)
 	return (_strdup(cmd));
 	return (NULL);
+}
+
+/**
+ *path_notfound - function in case there is no PATH.
+ *
+ */
+
+void path_notfound(void)
+{
+	write(STDERR_FILENO, "PATH not found", 14);
+	exit(EXIT_FAILURE);
 }
