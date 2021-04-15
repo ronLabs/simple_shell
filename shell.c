@@ -77,6 +77,11 @@ int tokenize_cmd(char *buf, char **env)
 		token = strtok(NULL, DELIM);
 	}
 	array[i] = NULL;
+	/* if cmd = " " (spaces) */
+	if (array[0] == NULL)
+	{
+		return (0);
+	}
 	return (_execute(array));
 }
 
